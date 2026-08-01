@@ -22,6 +22,8 @@ npm run dev
 
 Abre `http://localhost:3000` en el navegador.
 
+El estado del servidor puede comprobarse en `http://localhost:3000/health`.
+
 ## Pruebas
 
 ```bash

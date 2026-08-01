@@ -1,6 +1,6 @@
 const { after, before, beforeEach, test } = require('node:test');
 const assert = require('node:assert/strict');
-const { app, resetStore } = require('../server');
+const { app, resetStore } = require('../app');
 
 let server;
 let baseUrl;
@@ -38,6 +38,15 @@ test('crea y lista conversaciones', async () => {
   const list = await listResponse.json();
   assert.equal(list.conversations.length, 1);
   assert.equal(list.conversations[0].id, conversation.id);
+});
+
+test('expone el estado de salud del servidor', async () => {
+  const response = await fetch(`${baseUrl}/health`);
+  const payload = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.status, 'ok');
+  assert.equal(typeof payload.uptime, 'number');
 });
 
 test('responde a cada mensaje con código y timestamp', async () => {
@@ -79,4 +88,3 @@ test('rechaza mensajes vacíos', async () => {
 
   assert.equal(response.status, 400);
 });
-
