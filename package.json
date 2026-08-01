@@ -1,0 +1,19 @@
+{
+  "name": "meditations-quantic-geometries",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Entorno de chat responsive para Meditations Quantic Geometries",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
+
