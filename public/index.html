@@ -59,11 +59,15 @@
             <i class="bi bi-layout-sidebar-inset"></i>
           </button>
           <div class="active-avatar" aria-hidden="true"><i class="bi bi-chat-dots"></i></div>
-          <div class="min-w-0">
+          <div class="chat-heading min-w-0">
             <p class="chat-label mb-1">Conversación activa</p>
             <h2 class="chat-title text-truncate mb-0" id="activeConversationTitle">Nueva conversación</h2>
           </div>
-          <div class="ms-auto online-badge d-none d-sm-flex align-items-center gap-2">
+          <div class="mode-picker ms-auto">
+            <label class="mode-label" for="conversationTypeSelect">Modo de respuesta</label>
+            <select class="form-select mode-select" id="conversationTypeSelect" aria-label="Modo de respuesta" disabled></select>
+          </div>
+          <div class="online-badge d-none d-xl-flex align-items-center gap-2">
             <span></span> En línea
           </div>
         </header>
@@ -76,11 +80,14 @@
           <form class="composer mx-auto" id="messageForm">
             <label class="visually-hidden" for="messageInput">Escribe un mensaje</label>
             <textarea class="form-control" id="messageInput" rows="1" maxlength="2000" placeholder="Escribe un mensaje…" required></textarea>
+            <button class="voice-button" id="voiceButton" type="button" aria-label="Iniciar grabación de voz" title="Dictar por voz">
+              <i class="bi bi-mic" id="voiceIcon" aria-hidden="true"></i>
+            </button>
             <button class="send-button" id="sendButton" type="submit" aria-label="Enviar mensaje">
               <i class="bi bi-arrow-up"></i>
             </button>
           </form>
-          <p class="composer-note mb-0">Enter para enviar · Shift + Enter para una nueva línea</p>
+          <p class="composer-note mb-0" id="composerStatus" aria-live="polite">Enter para enviar · Shift + Enter para una nueva línea</p>
         </footer>
       </main>
     </div>
@@ -95,7 +102,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/text-insertion.js" defer></script>
     <script src="/app.js" defer></script>
   </body>
 </html>
-

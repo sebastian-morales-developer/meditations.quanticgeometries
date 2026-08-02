@@ -1,4 +1,6 @@
 node_modules/
 .env
+.environment
+.env.*
+!.env.example
 npm-debug.log*
-
